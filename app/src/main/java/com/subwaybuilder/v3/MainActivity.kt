@@ -53,14 +53,21 @@ fun SubwayBuilderApp() {
             )
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = { selectedTool = BuildTool.TRACK }) {
-                    Text(if (selectedTool == BuildTool.TRACK) "✓ Track" else "Track")
-                }
-                Button(onClick = { selectedTool = BuildTool.STATION }) {
-                    Text(if (selectedTool == BuildTool.STATION) "✓ Station" else "Station")
-                }
-            }
-
+    Button(onClick = { selectedTool = BuildTool.TRACK }) {
+        Text(if (selectedTool == BuildTool.TRACK) "✓ Track" else "Track")
+    }
+    Button(onClick = { selectedTool = BuildTool.STATION }) {
+        Text(if (selectedTool == BuildTool.STATION) "✓ Station" else "Station")
+    }
+    OutlinedButton(
+        onClick = {
+            trackTiles = emptySet()
+            stationTiles = emptySet()
+        }
+    ) {
+        Text("Clear")
+    }
+}
             Spacer(Modifier.height(12.dp))
 
             Column(
